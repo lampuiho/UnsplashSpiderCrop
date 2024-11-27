@@ -1,0 +1,49 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"terminal.integrated.profiles.windows": {
+			"PowerShell": {
+			"source": "PowerShell",
+			"icon": "terminal-powershell",
+			"args": ["-ExecutionPolicy", "Bypass"]
+			}
+		},
+		"terminal.integrated.defaultProfile.windows": "PowerShell",
+		"jupyter.notebookFileRoot": "${workspaceFolder}",
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-toolsai.jupyter"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Debug Current File",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${file}",
+				"env": {"PYTHONPATH": "${workspaceFolder}"},
+				"console": "integratedTerminal"
+			}, {
+				"name": "Python: Launch Scrapy Spider",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "scrapy",
+				"args": [
+					"crawl",
+					"unsplash_spider",
+					"-a",
+					"tags=blonde-woman",
+				],
+				"console": "integratedTerminal"
+			}
+		]
+	}
+}
