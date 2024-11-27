@@ -1,6 +1,7 @@
 from __future__ import annotations
 import dataclasses
 import os
+import sys
 from multiprocessing import JoinableQueue, Process
 from PIL import Image
 from ultralytics import YOLO
@@ -156,5 +157,5 @@ class AutoZoom:
         crop_q.join()
         sig.stop()
 if __name__ == '__main__':
-    func = AutoZoom('./output/blonde-woman', './output/cropped-blonde-woman')
+    func = AutoZoom(sys.argv[1], sys.argv[2])
     func()
