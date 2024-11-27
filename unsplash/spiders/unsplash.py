@@ -149,7 +149,8 @@ class UnsplashSpider(scrapy.Spider):
         self.driver = webdriver.Chrome(options=chrome_options)
     def start_requests(self):
         self.load_state()
-        for id, meta in self.process_queue.items():
+        items = list(self.process_queue.items())
+        for id, meta in items:
             yield self.process_queued(id, meta)
         for tag in self.tags:
             meta = { 'tag': tag }
